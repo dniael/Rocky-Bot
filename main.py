@@ -196,5 +196,5 @@ if __name__ == '__main__':
         client.load_extension(extension)
         print(f'{extension[5:]} cog loaded \n')
 
-client.run(os.environ['token'])
+client.run(os.environ['DISCORD_TOKEN'])
 
