@@ -19,7 +19,7 @@ import requests
 #         super().__init__(*args, **kwargs)
 
 
-client = commands.Bot(command_prefix='t!', intents=nextcord.Intents.all())
+client = commands.Bot(command_prefix='r!', intents=nextcord.Intents.all())
 error_codes = {
     400: 'Bad Request',
     401: 'Unauthorized',
