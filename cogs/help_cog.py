@@ -6,13 +6,13 @@ from nextcord.ext import commands
 
 class HelpCommand(commands.MinimalHelpCommand):
     def get_command_signature(self, command):
-        return f't!{command.qualified_name} {command.signature}'
+        return f'r!{command.qualified_name} {command.signature}'
 
     async def help_embed(self, title: str, description: Optional[str] = None,
                          mapping: Optional[dict] = None,
                          command_set: Optional[List[commands.Command]] = None):
         embed = nextcord.Embed(title=title)
-        embed.set_footer(text=f'Use t!help [category/command] for more info\n'
+        embed.set_footer(text=f'Use r!help [category/command] for more info\n'
                               f'Commands are **case sensitive**')
         if description:
             embed.description = description
@@ -71,7 +71,7 @@ class HelpCommand(commands.MinimalHelpCommand):
         for cmd in filtered:
             embed.add_field(name=f'{self.get_command_signature(cmd)}', value=cmd.help, inline=False)
 
-        embed.set_footer(text=f'Use t!help [command/category] for more info\n'
+        embed.set_footer(text=f'Use r!help [command/category] for more info\n'
                               f'Commands are case sensitive!')
         await ctx.send(embed=embed)
 
