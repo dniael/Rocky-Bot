@@ -54,7 +54,7 @@ class QuitGame(nextcord.ui.View):
         return
 
 
-class Emojis(nextcord.Enum):
+class Emojis():
     green = ':green_square:'
     yellow = ':yellow_square:'
     white = ':white_large_square:'
