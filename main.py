@@ -48,6 +48,18 @@ async def on_ready():
     # setattr(client, 'db', db)
     print('rockybot is ready for testing!')
 
+async def my_task():
+    target_time = datetime.datetime.now() + datetime.timedelta(days=1)
+    target_time = target_time.replace(hour=9, minute=0, second=0, microsecond=0)
+    time_difference = target_time - datetime.datetime.now()
+    await asyncio.sleep(time_difference.total_seconds())
+    channel = bot.get_channel(950918334457720852)  # Replace with your channel ID
+    await channel.send('msg supervisor')
+
+@bot.command()
+async def remindcoop(ctx):
+    bot.loop.create_task(my_task())
+    await ctx.send('Task started')
 
 @client.event
 async def on_presence_update(before: nextcord.Member, after: nextcord.Member):
