@@ -48,45 +48,6 @@ async def on_ready():
     # setattr(client, 'db', db)
     print('rockybot is ready for testing!')
 
-async def my_task():
-    target_time = datetime.datetime.now() + datetime.timedelta(days=1)
-    target_time = target_time.replace(hour=9, minute=0, second=0, microsecond=0)
-    time_difference = target_time - datetime.datetime.now()
-    await asyncio.sleep(time_difference.total_seconds())
-    channel = client.get_channel(950918334457720852)  # Replace with your channel ID
-    await channel.send('msg supervisor')
-
-@client.command()
-async def remindcoop(ctx):
-    client.loop.create_task(my_task())
-    await ctx.send('Task started')
-
-@client.event
-async def on_presence_update(before: nextcord.Member, after: nextcord.Member):
-    for activity in after.activities:
-        if "VALORANT" in activity:
-            channel = await after.guild.fetch_channel(913897088591466506)
-            await channel.send(f'{after.mention} stop playing VALORANT :anger:')
-
-
-async def send_guild_message(guild_id: int) -> None:
-    pass
-
-#
-# @client.event
-# async def on_message(msg: nextcord.Message):
-#     if msg.channel.id == 927381192569917510:
-#
-#         # requests.post('http://localhost:4000/message', data=msg)
-#
-# def jsonify_message(msg: nextcord.Message) -> dict:
-#     return {
-#         'channel': {
-#             'id': msg.channel.id
-#             ''
-#         }
-#     }
-
 
 @client.command()
 async def hello(ctx: commands.Context):
